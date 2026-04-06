@@ -9,6 +9,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style-c.css" />
+  <script>
+    (function () {
+      const saved = localStorage.getItem('emtesseract-concept-c-theme');
+      const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', saved || preferred);
+    })();
+  </script>
 </head>
 <body>
   <div class="sprinkles sprinkles-a"></div>
@@ -21,6 +28,7 @@
       <a href="./concept-b.html">Concept B</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
+      <button type="button" class="theme-toggle" aria-label="Toggle color theme">🌙 Dark</button>
     </nav>
   </header>
 
@@ -140,5 +148,25 @@
       <a class="button ghost" href="https://github.com/mamerbot" target="_blank" rel="noreferrer">GitHub ↗</a>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const key = 'emtesseract-concept-c-theme';
+      const root = document.documentElement;
+      const button = document.querySelector('.theme-toggle');
+      const applyTheme = (theme) => {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem(key, theme);
+        if (button) {
+          button.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+        }
+      };
+      const current = root.getAttribute('data-theme') || 'light';
+      applyTheme(current);
+      button?.addEventListener('click', function () {
+        applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      });
+    })();
+  </script>
 </body>
 </html>
