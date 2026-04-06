@@ -1,0 +1,44 @@
+:root {
+  --bg: #f5efe6;
+  --paper: #fffaf4;
+  --ink: #201c1a;
+  --muted: #625954;
+  --accent: #915eff;
+  --accent-2: #d16f8b;
+  --line: rgba(32, 28, 26, 0.12);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, rgba(145,94,255,.10), transparent 30%), linear-gradient(180deg, #f5efe6 0%, #f2e8db 100%);
+  color: var(--ink);
+  font-family: Inter, system-ui, sans-serif;
+}
+.shell { width: min(980px, calc(100% - 2rem)); margin: 0 auto; }
+.page { padding: 1.4rem 0 4rem; }
+.topbar { display:flex; justify-content:space-between; align-items:center; margin-bottom: 3rem; }
+.mini-link { color: var(--muted); text-decoration:none; font-weight:600; }
+.badge, .eyebrow {
+  display:inline-flex; align-items:center; gap:.4rem; text-transform:uppercase; letter-spacing:.12em; font-size:.76rem; font-weight:700;
+}
+.badge { padding:.45rem .8rem; border:1px solid var(--line); border-radius:999px; background: rgba(255,255,255,.5); }
+.hero h1, .section h2 { font-family: Fraunces, serif; line-height: 1; margin: 0; }
+.hero h1 { font-size: clamp(3rem, 8vw, 5.8rem); max-width: 11ch; }
+.lede, .copy p, article p, .note-panel li { color: var(--muted); line-height: 1.7; }
+.actions { display:flex; gap:.8rem; margin-top: 1.4rem; flex-wrap:wrap; }
+.button {
+  display:inline-flex; align-items:center; justify-content:center; min-height:3rem; padding:0 1.1rem; border-radius:999px; text-decoration:none; font-weight:700;
+}
+.button.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:white; }
+.button.ghost { border:1px solid var(--line); color: var(--ink); }
+.section { margin-top: 3.5rem; }
+.two-up { display:grid; grid-template-columns:.9fr 1fr; gap:2rem; align-items:start; }
+.cards { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:1rem; }
+.cards article, .note-panel {
+  background: rgba(255,255,255,.65); border:1px solid var(--line); border-radius: 24px; padding: 1.2rem; backdrop-filter: blur(10px);
+}
+.note-panel ul { margin: .5rem 0 0; padding-left: 1.2rem; }
+.footer { display:flex; justify-content:space-between; gap:1rem; align-items:end; padding-bottom: 2rem; }
+@media (max-width: 820px) {
+  .two-up, .cards, .footer { grid-template-columns: 1fr; display:grid; }
+}
