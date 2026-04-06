@@ -39,14 +39,6 @@ body {
     linear-gradient(180deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 82%, #ffe4ff 18%) 100%);
 }
 .shell { width: min(1080px, calc(100% - 2rem)); margin: 0 auto; }
-.sprinkles {
-  position: fixed; inset: 0; pointer-events: none; opacity: .35;
-  background-image:
-    radial-gradient(circle at 10% 20%, var(--pink) 0 4px, transparent 5px),
-    radial-gradient(circle at 85% 15%, var(--teal) 0 4px, transparent 5px),
-    radial-gradient(circle at 70% 80%, var(--yellow) 0 5px, transparent 6px),
-    radial-gradient(circle at 20% 75%, var(--purple) 0 4px, transparent 5px);
-}
 .topbar, .footer, .hero, .section { position: relative; z-index: 1; }
 .topbar {
   padding: 1.2rem 0;
